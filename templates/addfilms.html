@@ -1,0 +1,24 @@
+{% extends 'base.html'  %}
+
+{% block content %}
+
+<h1 class="text-lg-center"> Add Films</h1>
+
+<div class="container ">
+
+    <form class="justify-content-center" action="" method="post">
+        <input type="text" id="title" name="title" placeholder=" Title" value="{{request.form[title]}}">
+
+        <input type="text" id="yearreleased" name="yearreleased" placeholder=" Year Released" value="{{request.form[yearreleased]}}">
+
+        <input type="text" id="rating" name="rating" placeholder=" Rating" value="{{request.form[rating]}}">
+
+        <input type="text" id="duration" name="duration" placeholder=" Duration" value="{{request.form[duration]}}">
+
+        <input type="text" id="genre" name="genre" placeholder=" Genre" value="{{request.form[genre]}}">
+        
+        <button class="btn btn-primary" type="submit" value="Add Film">Add Film</button>
+    </form>
+
+</div>
+{% endblock content %}

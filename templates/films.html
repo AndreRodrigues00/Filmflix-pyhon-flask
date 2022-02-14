@@ -1,0 +1,48 @@
+{% extends 'base.html'  %}
+
+{% block content %}
+
+<h1 class="text-lg-center">Films</h1>
+<div class="container">
+
+
+
+<table class="table  ">
+   <thead class="thead-dark">
+       <th>FilmID</th>
+       <th>Title</th>
+       <th>Year Released</th>
+       <th>Rating</th>
+       <th>Duration</th>
+       <th>Genre</th>
+   </thead> 
+   <tbody>
+{% for row in retrieveFilms %}
+       <tr>
+           <td>{{row["filmID"]}}</td>
+           <td>{{row["title"]}}</td>
+           <td>{{row["yearreleased"]}}</td>
+           <td>{{row["rating"]}}</td>
+           <td>{{row["duration"]}}</td>
+           <td>{{row["genre"]}}</td>
+           <td> <button type="submit" class="btn" >
+            <a class="btn btn-outline-primary" href="{{url_for('update', filmID=row['filmID'])}}">Update</a>
+
+            </button>
+            </td>
+           <td> <form class="deleteBtn" action="{{url_for('delete', filmID=row['filmID'])}}" method="POST"> 
+            <input class="btn btn-outline-danger"  type="submit" value="Delete"  onclick=" return confirm('Press confirm to Delete')"> 
+          </form>
+          {% endfor %}</td>
+        </tr>
+        <td class="buttonTd">
+            
+            </td>
+       </tr>
+    </tbody>
+
+</table>
+</div>
+
+{% endblock content %}
+

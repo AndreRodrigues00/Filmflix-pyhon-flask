@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    {% extends 'base.html' %}
+    <title>FilmFlix home</title>
+    <link href="https://fonts.googleapis.com/css2?family=Nunito&display=swap" rel="stylesheet">
+</head>
+{% block content %}
+<body>
+    <!-- css style here -->
+    <style>
+    body{
+        background-color: black;
+        font-family: 'Nunito', sans-serif;
+}
+    .film-card {
+        width: 300px;
+        height: auto;
+        background: white;
+        padding: 12px;
+        align-items: center;
+        border-radius: 2px;
+        box-shadow: 2px 2px 4px #504453;
+        margin: 12px;
+    }
+    .film-list-container {
+        flex-direction: row;
+        display: flex;
+        flex-wrap: wrap;
+        /* padding: 12px; */
+        justify-content: space-around;
+}
+    img {
+    max-width: 100%;
+    }
+
+    </style>
+    <section>
+        <div class="film-list-container">
+            {% for film in data %}
+            <div class="film-card">
+                <img src="https://image.tmdb.org/t/p/w500/{{film.poster_path}}" class="film-poster">
+                <h2>{{film['title']}}, {{film['vote_average']}}</h2>
+            </div>
+            {% endfor %}
+    </div>
+    </section>
+{% endblock content %}
+</body>
+</html>
